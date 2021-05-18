@@ -7,7 +7,8 @@ import javax.inject.Inject
 class DataMapper @Inject constructor() {
     fun mapApiResponseToPokemonUIDataModel(response : ResponsePokemon) : PokemonDataModel{
         return PokemonDataModel(
-            id = response.id
+            id = response.id,
+            name = response.name
         )
     }
 }

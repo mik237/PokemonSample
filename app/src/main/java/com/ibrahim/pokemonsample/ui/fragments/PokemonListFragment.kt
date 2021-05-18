@@ -5,11 +5,13 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.GeneratedAdapter
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ibrahim.pokemonsample.R
 import com.ibrahim.pokemonsample.adapters.PokemonListAdapter
+import com.ibrahim.pokemonsample.util.Constants
 import com.ibrahim.pokemonsample.util.MainActivityRepository
 import com.ibrahim.pokemonsample.viewmodel.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_pokemon_list.*
@@ -28,6 +30,14 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list){
         super.onViewCreated(view, savedInstanceState)
         initViews()
         initObservers()
+
+        if(sharedViewModel.mappedData.isNullOrEmpty()) {
+            fetchPokemonList()
+        }
+    }
+
+    private fun fetchPokemonList() {
+        sharedViewModel.getPokemonList(Constants.LIMIT)
     }
 
     private fun initViews() {
@@ -41,7 +51,14 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list){
     }
 
     private fun initObservers() {
+        sharedViewModel.pokemonLiveData.observe(viewLifecycleOwner, Observer {
+            it?.let {status ->
+                when(status){
 
+                }
+
+            }
+        })
     }
 
 
