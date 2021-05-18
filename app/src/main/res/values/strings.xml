@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PokemonSample</string>
+    <string name="pokemon">Pokemon</string>
+    <string name="webview">Webview</string>
+</resources>
