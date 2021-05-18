@@ -2,4 +2,9 @@
     <string name="app_name">PokemonSample</string>
     <string name="pokemon">Pokemon</string>
     <string name="webview">Webview</string>
+    <string name="experience">Experience</string>
+    <string name="weight">Weight</string>
+    <string name="title">Msr Test</string>
+    <string name="second_tab_title">Msr.dev</string>
+
 </resources>

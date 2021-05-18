@@ -3,9 +3,11 @@ package com.ibrahim.pokemonsample.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.ibrahim.pokemonsample.R
 import com.ibrahim.pokemonsample.ui.data_model.PokemonDataModel
 import javax.inject.Inject
@@ -32,6 +34,15 @@ class PokemonListAdapter @Inject constructor() : RecyclerView.Adapter<PokemonLis
         fun bind(pokemonDataModel: PokemonDataModel){
             itemView.findViewById<TextView>(R.id.tvName).text = pokemonDataModel.name
             itemView.findViewById<TextView>(R.id.tvIdNumber).text = "${pokemonDataModel.id}"
+
+            val imageView = itemView.findViewById<ImageView>(R.id.ivPokemanImage)
+            if(pokemonDataModel.thumbNailUrl.isNotEmpty()){
+                Glide.with(imageView)
+                    .load(pokemonDataModel.thumbNailUrl)
+                    .into(imageView)
+            }
+
+            itemView.setOnClickListener { listener?.onItemClicked(pokemonDataModel) }
         }
     }
 

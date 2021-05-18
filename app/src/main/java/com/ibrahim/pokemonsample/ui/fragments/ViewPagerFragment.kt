@@ -26,7 +26,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager) {
         TabLayoutMediator(tabLayout, viewPager){ tab, position->
             tab.text = when(position){
                 0 -> resources.getString(R.string.pokemon)
-                else -> resources.getString(R.string.webview)
+                else -> resources.getString(R.string.second_tab_title)
             }
         }.attach()
     }

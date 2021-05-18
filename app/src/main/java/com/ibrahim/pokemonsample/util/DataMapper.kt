@@ -8,7 +8,11 @@ class DataMapper @Inject constructor() {
     fun mapApiResponseToPokemonUIDataModel(response : ResponsePokemon) : PokemonDataModel{
         return PokemonDataModel(
             id = response.id,
-            name = response.name
+            name = response.name,
+            weight = response.weight,
+            baseExperience = response.baseExperience,
+            thumbNailUrl = response.sprites.frontShiny,
+            largeImgUrl = response.sprites.other.officialArtwork.frontDefault
         )
     }
 }

@@ -9,9 +9,6 @@ class MainActivityRepository @Inject constructor(
     private val connectionManager: ConnectionManager
 ){
 
-    //private val networkService = NetworkServiceProvider.getNetworkService()
-    private val dataMapper = DataMapper()
-
     fun getPokemonList(limit : Int) = networkBoundResource(
         isNetworkConnected = {connectionManager.isConnected()},
         fetch = {

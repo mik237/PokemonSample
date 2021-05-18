@@ -67,7 +67,9 @@ class SharedViewModel @Inject constructor(
                     val pokemonDataModel = dataMapper.mapApiResponseToPokemonUIDataModel(data)
                     mappedData.add(pokemonDataModel)
                 }
-                else -> {}
+                else -> {
+                    _pokemonListLiveData.value = it
+                }
             }
         }
     }
